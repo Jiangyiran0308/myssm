@@ -5,7 +5,7 @@
 <mapper namespace="com.jyr.dao.TestDao">
 
     <select id="configTest" resultType="String">
-        SELECT name FROM batt_site WHERE id = '4028e3c05d2bae22015d2bb0eaf50004'
+        select count(*) from user_tables
     </select>
 
 </mapper>
