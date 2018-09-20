@@ -17,7 +17,7 @@ import java.io.IOException;
  * @Modified By:
  */
 @Controller
-@RequestMapping(value = "/",method = RequestMethod.GET)
+@RequestMapping(value = "/test",method = RequestMethod.GET)
 public class TestController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
