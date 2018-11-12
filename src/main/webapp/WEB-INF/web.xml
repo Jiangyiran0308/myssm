@@ -7,6 +7,19 @@
   <display-name>MySSm</display-name>
   <description>MySSm_Alpha_0.0.1</description>
 
+  <!-- 这是session过期时间 -->
+  <session-config>
+    <session-timeout>1800</session-timeout>
+  </session-config>
+
+  <!-- 这里配置SpringMVC的监听器，也就是启动的时候SpringMVC会注册一些事件，然后监控系统的请求情况 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+  </listener>
+
   <!-- 编码过滤器 -->
   <filter>
     <filter-name>encodingFilter</filter-name>
@@ -22,6 +35,16 @@
   </filter>
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- Spring Security 的过滤配置，表明请求需要经过这个类的过滤和判断 -->
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
