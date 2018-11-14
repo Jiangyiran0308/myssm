@@ -1,0 +1,2 @@
+webpackJsonp([10],{"87CE":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r={render:function(){var t=this.$createElement;return(this._self._c||t)("div",[this._v("\n    关注我的\n")])},staticRenderFns:[]};var s=n("VU/8")({name:"users-attention-list",props:{},components:{},data:function(){return{}},mounted:function(){},methods:{}},r,!1,function(t){n("O7H5")},"data-v-698dacce",null);e.default=s.exports},O7H5:function(t,e){}});
+//# sourceMappingURL=10.21be136ec44b3188b7ee.js.map

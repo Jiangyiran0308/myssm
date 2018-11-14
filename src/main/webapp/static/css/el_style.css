@@ -1,0 +1,109 @@
+/*分页样式修改*/
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #A8A8A8;
+  color: #fff;
+}
+.el-pagination.is-background .el-pager li:not(.disabled):hover {
+  color: #B1B1B1;
+}
+.el-select .el-input.is-focus .el-input__inner {
+  border-color: #484848;
+}
+.el-pagination__sizes .el-input .el-input__inner:hover {
+  border-color: #484848;
+}
+.el-select-dropdown__item.selected {
+  color: #9D9D9D;
+  font-weight: 700;
+}
+/*滑条*/
+.el-scrollbar .el-scrollbar__wrap {overflow-x: hidden;}
+
+/*element菜单样式重写*/
+.el-menu-item {
+  font-size: 14px;
+  color: #CACBCD;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: border-color .3s,background-color .3s,color .3s;
+  box-sizing: border-box;
+}
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+  outline: 0;
+  color: #FFFFFF;
+  font-size: 17px;
+}
+.el-menu-item.is-active {
+  color: #FFFFFF;
+  font-size: 17px;
+}
+
+.el-submenu__title {
+  font-size: 14px;
+  color: #CACBCD;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: border-color .3s,background-color .3s,color .3s;
+  box-sizing: border-box;
+}
+.el-menu--horizontal .el-menu .el-menu-item.is-active, .el-menu--horizontal .el-menu .el-submenu.is-active > .el-submenu__title {
+  color: #FFFFFF;
+}
+.el-menu-item, .el-submenu__title {
+  height: 50px;
+  line-height: 56px;
+  position: relative;
+  white-space: nowrap;
+  list-style: none;
+}
+/*!*菜单关闭*!*/
+/*.el-submenu>.el-submenu__title .el-submenu__icon-arrow{*/
+/*-webkit-transform: rotateZ(-90deg);*/
+/*-ms-transform: rotate(-90deg);*/
+/*transform: rotateZ(-90deg);*/
+/*}*/
+/*!*菜单展开*!*/
+/*.el-submenu.is-opened>.el-submenu__title .el-submenu__icon-arrow{*/
+/*-webkit-transform: rotateZ(0deg);*/
+/*-ms-transform: rotate(0deg);*/
+/*transform: rotateZ(0deg);*/
+/*}*/
+
+/*下拉菜单*/
+.el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
+  background-color: #D1D1D1;
+  color: #444444;
+}
+/*搜索选择菜单*/
+.el-select .el-input {
+  width: 100px;
+}
+/*单选框*/
+.el-radio__input.is-checked .el-radio__inner {
+
+  border-color: #245B90;
+  background: #245B90;
+
+}
+.el-radio__input.is-checked + .el-radio__label {
+
+  color: #245B90;
+
+}
+/*输入框 input*/
+.el-input.is-active .el-input__inner, .el-input__inner:focus {
+
+  border-color: #245B90;
+  outline: 0;
+
+}
+/*tag标签*/
+.el-tag {
+  border-radius: 12px;
+}
+
+/*面包屑*/
+.el-breadcrumb__inner a:hover, .el-breadcrumb__inner.is-link:hover {
+  color: #CCCCCC;
+  cursor: pointer;
+}

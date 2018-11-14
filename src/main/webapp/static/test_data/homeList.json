@@ -1,0 +1,64 @@
+{
+  "data":[
+    {
+      "id":"1",
+      "userId":"",
+      "userPic":"",
+      "userName":"Kris",
+      "userFans":45,
+      "userEssay":114,
+      "title":"关于修改java代码后得重启Tomcat等服务器的问题",
+      "tagList":["java","服务器"],
+      "createTime":"2018-01-12 14:35:00",
+      "content":"在开发的过程中修改了java代码每次重启Tomcat服务器才行，大多数人就是觉得修改了java代码后Tomcat加载的class文件没有修改得重新部署一遍。其实这个没有说到问题的点子上去。先说下我们写java的时候每次写完之后都是得保存然后运行，如果修改了java代码也是保存后重新运行才有效。其实这个过程是重启了JVM，如果不重启JVM，JVM中加载的类的状态还是没有修改之前的。造成这个问题的原因是java没有办法动态加载类的。也就是没有办法在JVM运行过程中修改类文件和添加新的类到JVM中。所以每当修改或编写了新的类后我们的保存文件后重新运行的原因，这个过程就是重启了JVM，重新加载class到JVM中。那么又有一个问题，为什么jsp文件可以动态的修改，jsp文件最后也是编译成了class文件？这个是jsp的实现走了一个后门。前面分析造成不能动态加载类是对象被保存了，并且被其他对象引用了，一个简单的解决办法就是不保存对象的状态，对象被创建使用后就被释放，下次修改后，对象也就是新的了。最后回到修改了java代码后重启Tomcat的问题上，其实重启的不是Tomcat而是JVM。其实是可以通过配置的方式不去重启Tomcat。",
+      "commentNum":0,
+      "favorNum":0,
+      "collectNum":0
+    },
+    {
+      "id":"2",
+      "userId":"",
+      "userPic":"",
+      "userName":"用户01",
+      "userFans":21,
+      "userEssay":35,
+      "title":"【Oracle RAC】JDBC连接oracle RAC数据库配置",
+      "tagList":["oracle","java"],
+      "createTime":"2018-01-08 08:04:32",
+      "content":"生产上线系统，未能及时识别到Oracle数据库是RAC环境，上线时，Druid数据源配置按照单实例数据库配置，导致系统无法建立数据库连接，系统无法启动。",
+      "commentNum":0,
+      "favorNum":0,
+      "collectNum":0
+    },
+    {
+      "id":"3",
+      "userId":"",
+      "userPic":"",
+      "userName":"用户02",
+      "userFans":70,
+      "userEssay":35,
+      "title":"使用 vue-router 跳转页面",
+      "tagList":["vue"],
+      "createTime":"2018-01-08 08:04:32",
+      "content":"生产上线系统，未能及时识别到Oracle数据库是RAC环境，上线时，Druid数据源配置按照单实例数据库配置，导致系统无法建立数据库连接，系统无法启动。",
+      "commentNum":0,
+      "favorNum":0,
+      "collectNum":0
+    },
+    {
+      "id":"4",
+      "userId":"",
+      "userPic":"",
+      "userName":"用户332",
+      "userFans":21,
+      "userEssay":35,
+      "title":"Spring MVC 介绍",
+      "tagList":["oracle","java"],
+      "createTime":"2018-01-08 08:04:32",
+      "content":"<p>Spring MVC 是一个模型 - 视图 - 控制器（MVC）的Web框架建立在中央前端控制器servlet（DispatcherServlet），它负责发送每个请求到合适的处理程序，使用视图来最终返回响应结果的概念。Spring MVC 是 Spring 产品组合的一部分，它享有 Spring IoC容器紧密结合Spring松耦合等特点，因此它有Spring的所有优点。</p><h1>SpringMVC架构图所下所示 </h1><pre class='ql-syntax' spellcheck='false'>int i = 0 ;doubel j = 0 ;</pre><p>这个 Spring 4 MVC教程系列是基于 Spring 4.0.6.RELEASE / 4.1.7.RELEASE/4.2.0.RELEASE.</p><p>Spring 4 MVC 实践操作的例子</p><p>在本系列教程中，我们将通过 Spring 4 MVC 使用全面性工作例子来帮助探索它们的共同特征。</p><p>下面这些列出来的是一些比较实用（也归为高级部分）的示例，如果是初学者，可以从左侧目录依次往下学习和实践。</p><p><br></p>",
+      "commentNum":0,
+      "favorNum":0,
+      "collectNum":0
+    }
+  ]
+}

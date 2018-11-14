@@ -1,0 +1,265 @@
+{
+  "entity": null,
+  "child":[
+    {
+      "entity":{
+        "id":"1",
+        "parentMenuId":0,
+        "name":"首页",
+        "iconClass":"ji-iconfont-home_fill_light",
+        "iconSize":"22px",
+        "itemClass":"menuColor",
+        "value":"/my.j.blog/home"
+      },
+      "child":[]
+
+    },
+    {
+      "entity": {
+        "id": "2",
+        "parentMenuId": 0,
+        "name": "关注",
+        "iconClass": "ji-iconfont-likefill",
+        "iconSize": "22px",
+        "itemClass": "menuColor",
+        "value": "/my.j.blog/attention"
+      },
+      "child":[
+        {
+          "entity":{
+            "id":"2-1",
+            "parentMenuId":"2",
+            "name":"关注列表",
+            "iconClass":"",
+            "iconSize":"22px",
+            "itemClass":"menuColor",
+            "value":"/my.j.blog/attention/list"
+          },
+          "child":[]
+        }
+      ]
+    },
+    {
+      "entity": {
+        "id": "9",
+        "parentMenuId": 0,
+        "name": "收藏",
+        "iconClass": "ji-iconfont-favor_fill_light",
+        "iconSize": "22px",
+        "itemClass": "menuColor",
+        "value": "/my.j.blog/collection"
+      },
+      "child":[
+        {
+          "entity": {
+            "id": "9-1",
+            "parentMenuId": 0,
+            "name": "全部",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/collection"
+          },
+          "child":[]
+        },
+        {
+          "entity": {
+            "id": "9-2",
+            "parentMenuId": 0,
+            "name": "分类",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/collection"
+          },
+          "child":[
+            {
+              "entity": {
+                "id": "9-2-1",
+                "parentMenuId": 0,
+                "name": "按时间",
+                "iconClass": "ji-iconfont-repairfill",
+                "iconSize": "22px",
+                "itemClass": "menuColor",
+                "value": "/my.j.blog/collection"
+              },
+              "child":[]
+            },
+            {
+              "entity": {
+                "id": "9-2-2",
+                "parentMenuId": 0,
+                "name": "按标签",
+                "iconClass": "ji-iconfont-repairfill",
+                "iconSize": "22px",
+                "itemClass": "menuColor",
+                "value": "/my.j.blog/setting"
+              },
+              "child":[]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": {
+        "id": "3",
+        "parentMenuId": 0,
+        "name": "我的文章",
+        "iconClass": "ji-iconfont-formfill",
+        "iconSize": "22px",
+        "itemClass": "menuColor",
+        "value": "/my.j.blog/content"
+      },
+      "child":[
+        {
+          "entity": {
+            "id": "3-1",
+            "parentMenuId": 0,
+            "name": "全部",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/collection"
+          },
+          "child":[]
+        },
+        {
+          "entity": {
+            "id": "3-2",
+            "parentMenuId": 0,
+            "name": "批量管理",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/collection"
+          },
+          "child":[]
+        }
+      ]
+    },
+    {
+      "entity": {
+        "id": "4",
+        "parentMenuId": 0,
+        "name": "发表文章",
+        "iconClass": "ji-iconfont-writefill",
+        "iconSize": "22px",
+        "itemClass": "menuColor",
+        "value": "/my.j.blog/write"
+      },
+      "child":[]
+    },
+    {
+      "entity": {
+        "id": "5",
+        "parentMenuId": 0,
+        "name": "草稿箱",
+        "iconClass": "ji-iconfont-deletefill",
+        "iconSize": "22px",
+        "itemClass": "menuColor",
+        "value": "/my.j.blog/drafts"
+      },
+      "child":[]
+    },
+    {
+      "entity": {
+        "id": "8",
+        "parentMenuId": 0,
+        "name": "个人中心",
+        "iconClass": "ji-iconfont-peoplefill",
+        "iconSize": "22px",
+        "itemClass": "menuColor",
+        "value": "/my.j.blog/setting"
+      },
+      "child":[
+        {
+          "entity": {
+            "id": "8-1",
+            "parentMenuId": 0,
+            "name": "资料修改",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/setting/editData"
+          },
+          "child":[]
+        },
+        {
+          "entity": {
+            "id": "8-2",
+            "parentMenuId": 0,
+            "name": "关注我的",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/setting/usersAttentionList"
+          },
+          "child":[]
+        },
+        {
+          "entity": {
+            "id": "8-3",
+            "parentMenuId": 0,
+            "name": "消息",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/setting/accountMessage"
+          },
+          "child":[]
+        },
+        {
+          "entity": {
+            "id": "8-4",
+            "parentMenuId": 0,
+            "name": "留言板",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/setting/othersNote"
+          },
+          "child":[]
+        }
+      ]
+    },
+    {
+      "entity": {
+        "id": "10",
+        "parentMenuId": 0,
+        "name": "系统管理",
+        "iconClass": "ji-iconfont-newsfill",
+        "iconSize": "22px",
+        "itemClass": "menuColor",
+        "value": "/my.j.blog/system"
+      },
+      "child":[
+        {
+          "entity": {
+            "id": "10-1",
+            "parentMenuId": 0,
+            "name": "用户验证",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/setting"
+          },
+          "child":[]
+        },
+        {
+          "entity": {
+            "id": "10-2",
+            "parentMenuId": 0,
+            "name": "菜单管理",
+            "iconClass": "ji-iconfont-repairfill",
+            "iconSize": "22px",
+            "itemClass": "menuColor",
+            "value": "/my.j.blog/setting"
+          },
+          "child":[]
+        }
+      ]
+    }
+
+  ]
+}
