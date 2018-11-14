@@ -1,14 +1,18 @@
 package com.jyr.controller;
 
+import com.jyr.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * @Author: Jiang
@@ -17,7 +21,7 @@ import java.io.IOException;
  * @Modified By:
  */
 @Controller
-@RequestMapping(value = "/test",method = RequestMethod.GET)
+@RequestMapping(value = "/",method = RequestMethod.GET)
 public class TestController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -25,6 +29,28 @@ public class TestController {
         String str = "welcome!!!";
         request.setAttribute("test",str);
         return "index";
+    }
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
+        String str = "welcome!!!";
+        request.setAttribute("test",str);
+        return "login";
+    }
+    @RequestMapping(value = "/data", method = RequestMethod.POST)
+    @ResponseBody
+    public Object testdata(Map info) throws IOException, ServletException {
+        String str = "welcome!!!";
+
+        System.out.println(info);
+//        System.out.println(request);
+
+        Account account = new Account() ;
+        account.setId("111111");
+        account.setAccountid("123456");
+        account.setUsername("jiang");
+        account.setPassword("123");
+
+        return account;
     }
 
 }

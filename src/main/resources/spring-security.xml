@@ -1,64 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:sec="http://www.springframework.org/schema/security"
              xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-        http://www.springframework.org/schema/security
-        http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+                        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+                        http://www.springframework.org/schema/security
+                        http://www.springframework.org/schema/security/spring-security.xsd">
 
     <!-- 配置为none的不经过任何spring的过滤器，一下主要是静态资源，我们不需要经过过滤器 -->
-    <http pattern="/resources/**" security="none" />
-    <http pattern="/sitemap.xml" security="none" />
-    <http pattern="/favicon.ico" security="none" />
+    <!--<http pattern="/resources/**" security="none" />-->
+    <!--<http pattern="/sitemap.xml" security="none" />-->
+    <!--<http pattern="/favicon.ico" security="none" />-->
 
     <!-- 配置为permitAll允许所有已登录或者未用户访问，但依然经过过滤器处理。除此之外所有的页面都需要登录访问 -->
-    <http auto-config="true" use-expressions="true">
-
-        <intercept-url pattern="/"  access="permitAll" />
-        <intercept-url pattern="/my.j.blog/login" access="permitAll" />
-        <!--<intercept-url pattern="/signin*" access="permitAll" />-->
-        <!--<intercept-url pattern="/login*" access="permitAll" />-->
-        <!--<intercept-url pattern="/register*" access="permitAll" />-->
-        <!--<intercept-url pattern="/invalidsession*" access="permitAll" />-->
-        <intercept-url pattern="/404*" access="none" />
+    <!--<http auto-config="true" use-expressions="true">-->
+    <!--<http use-expressions="false">-->
+    <http auto-config="true">
+        <intercept-url pattern="/login" access="permitAll"/>
+        <!--<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>-->
+        <intercept-url pattern="/**" access="permitAll"/>
 
         <!-- 配置登录的路径，已经认证失败的页面，认证成功的页面 -->
-        <form-login login-page="/my.j.blog/login" authentication-failure-url="/my.j.blog/login?login_error" default-target-url="/"/>
-        <logout logout-success-url="/my.j.blog/home" delete-cookies="JSESSIONID" />
+        <form-login login-page="/login" authentication-failure-url="/login?login_error" default-target-url="/"/>
+        <!--<logout/>-->
+        <logout invalidate-session="true" logout-success-url="/login" delete-cookies="JSESSIONID" />
 
         <!-- 配不同页面的权限，/admin下面需要role_admin权限，其他都可以 -->
         <!--<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />-->
         <!--<intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />-->
 
+        <!--禁用CSRF防御-->
         <csrf disabled="true" />
-        <access-denied-handler error-page="/403" />
-
-        <remember-me data-source-ref="dataSource" token-validity-seconds="1209600" remember-me-parameter="remember-me" />
-
-        <session-management invalid-session-url="/">
-            <concurrency-control max-sessions="1"/>
-        </session-management>
 
     </http>
-
-    <!--<authentication-manager erase-credentials="false">-->
-        <!--<authentication-provider>-->
-            <!--<password-encoder ref="bcryptEncoder" />-->
-            <!--<jdbc-user-service data-source-ref="dataSource" />-->
-        <!--</authentication-provider>-->
-    <!--</authentication-manager>-->
-
-    <!--<beans:bean id="messageSource"-->
-                <!--class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
-        <!--<beans:property name="basenames">-->
-            <!--<beans:list>-->
-                <!--<beans:value>classpath:myMessages</beans:value>-->
-            <!--</beans:list>-->
-        <!--</beans:property>-->
-    <!--</beans:bean>-->
-
-    <!--&lt;!&ndash; 配置加密的算法，表明在登录后密码需要加密验证 &ndash;&gt;-->
-    <!--<beans:bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />-->
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider>
+            <user-service>
+                <!-- 这里创建两个用户，可以通过用户名密码登录 -->
+                <user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />
+                <user name="user" password="123456" authorities="ROLE_USER" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
 
 </beans:beans>

@@ -13,21 +13,29 @@
   </session-config>
 
   <!-- 这里配置SpringMVC的监听器，也就是启动的时候SpringMVC会注册一些事件，然后监控系统的请求情况 -->
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  <listener>
-    <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
-  </listener>
+  <!--<listener>-->
+    <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+  <!--</listener>-->
+  <!--<listener>-->
+    <!--<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>-->
+  <!--</listener>-->
 
   <!-- Spring Security 的过滤配置，表明请求需要经过这个类的过滤和判断 -->
+  <!--<filter>-->
+  <!--<filter-name>springSecurityFilterChain</filter-name>-->
+  <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+  <!--</filter>-->
+  <!--<filter-mapping>-->
+  <!--<filter-name>springSecurityFilterChain</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
+  <!--</filter-mapping>-->
   <filter>
-  <filter-name>springSecurityFilterChain</filter-name>
-  <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <filter-name>sessionFilter</filter-name>
+    <filter-class>com.jyr.controller.IDEFilter</filter-class>
   </filter>
   <filter-mapping>
-  <filter-name>springSecurityFilterChain</filter-name>
-  <url-pattern>/*</url-pattern>
+    <filter-name>sessionFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
 
   <!-- 编码过滤器 -->
@@ -69,6 +77,10 @@
   <welcome-file-list>
   <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+  <!--<error-page>-->
+    <!--<error-code>404</error-code>-->
+    <!--<location>/</location>-->
+  <!--</error-page>-->
 
 </web-app>
 
