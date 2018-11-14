@@ -36,12 +36,13 @@ public class TestController {
         request.setAttribute("test",str);
         return "login";
     }
-    @RequestMapping(value = "/data", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/data", method = RequestMethod.GET)
     @ResponseBody
-    public Object testdata(Map info) throws IOException, ServletException {
+    public Object testdata(String user) throws IOException, ServletException {
         String str = "welcome!!!";
 
-        System.out.println(info);
+        System.out.println(user);
 //        System.out.println(request);
 
         Account account = new Account() ;
@@ -51,6 +52,13 @@ public class TestController {
         account.setPassword("123");
 
         return account;
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    @ResponseBody
+    public Object testppost(@RequestBody Map info){
+        System.out.println(info);
+        return info ;
     }
 
 }

@@ -26,6 +26,8 @@ public class IDEFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 //       仅 开发环境 跨域 使用
         response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "*");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE");
         filterChain.doFilter(request, response);
     }
 
