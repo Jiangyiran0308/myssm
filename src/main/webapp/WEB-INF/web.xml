@@ -21,14 +21,14 @@
   <!--</listener>-->
 
   <!-- Spring Security 的过滤配置，表明请求需要经过这个类的过滤和判断 -->
-  <!--<filter>-->
-  <!--<filter-name>springSecurityFilterChain</filter-name>-->
-  <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
-  <!--</filter>-->
-  <!--<filter-mapping>-->
-  <!--<filter-name>springSecurityFilterChain</filter-name>-->
-    <!--<url-pattern>/*</url-pattern>-->
-  <!--</filter-mapping>-->
+  <filter>
+  <filter-name>springSecurityFilterChain</filter-name>
+  <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <filter>
     <filter-name>sessionFilter</filter-name>
     <filter-class>com.jyr.controller.IDEFilter</filter-class>

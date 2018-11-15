@@ -1,7 +1,7 @@
 package com.jyr.controller;
 
 import com.jyr.model.Account;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jyr.model.Message.SimpleMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,5 +60,58 @@ public class TestController {
         System.out.println(info);
         return info ;
     }
+
+    @RequestMapping(value = "/messagesuccess", method = RequestMethod.GET)
+    @ResponseBody
+    public SimpleMessage message(){
+        return SimpleMessage.success("成功");
+    }
+
+    @RequestMapping(value = "/messageinfo", method = RequestMethod.GET)
+    @ResponseBody
+    public SimpleMessage message1(){
+        return SimpleMessage.info("普通");
+    }
+
+    @RequestMapping(value = "/messagewarn", method = RequestMethod.GET)
+    @ResponseBody
+    public SimpleMessage message2(){
+        return SimpleMessage.warn("警告");
+    }
+
+    @RequestMapping(value = "/messagefail", method = RequestMethod.GET)
+    @ResponseBody
+    public SimpleMessage message3(){
+        return SimpleMessage.error("错误");
+    }
+
+    @RequestMapping(value = "/datainfo", method = RequestMethod.GET)
+    @ResponseBody
+    public SimpleMessage data1(){
+        Account account = new Account() ;
+        account.setId("111111");
+        account.setAccountid("123456");
+        account.setUsername("jiang");
+        account.setPassword("123");
+        return SimpleMessage.info(account);
+    }
+
+    @RequestMapping(value = "/testLogin", method = RequestMethod.POST)
+    @ResponseBody
+    public SimpleMessage loginAuth(@RequestBody Account account){
+
+        System.out.println(account.getAccountid());
+        System.out.println(account.getPassword());
+
+        if(account.getAccountid().equals("admin")){
+            if(account.getPassword().equals("123456")){
+                account.setUsername("superadmin");
+                account.setId("11111111222222");
+            }
+        }
+//        return info ;
+        return SimpleMessage.info(account);
+    }
+
 
 }
