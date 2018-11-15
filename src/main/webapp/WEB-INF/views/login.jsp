@@ -19,12 +19,14 @@
             padding-top: 50px;
         }
         .logincss{
+            position: absolute;
             background-color: #FFFFFF;
             border-radius: 15px;
-            height: 390px;
-            width: 370px;
+            height: 280px;
+            width: 300px;
             padding: 30px;
-            margin: auto;
+            margin-top: 10%;;
+            margin-left: 60%;
             top: 0;
             left: 0;
             right: 100px;
@@ -33,14 +35,16 @@
 
         .loginbtn{
             background-color: #3795FF;
-            width:310px;
-            height: 50px;
+            width:240px;
+            height: 40px;
             text-align: center;
             color: #FFFFFF;
-            font-size: 26px;
+            font-size: 21px;
             font-family: 微软雅黑;
             border-radius: 6px;
+            margin: auto;
             padding: 5px;
+            cursor: pointer;
         }
         .loginbtn:hover{
             background-color:#26BEFF ;
@@ -49,23 +53,23 @@
     </style>
 </head>
 <body>
-<div>
+<div style="background: #1F686D;width: 100%;height: 100%">
     <div class="logincss">
-        <div style="font-weight: bold;font-family:黑体;font-size: 26px;text-align: center;padding-bottom: 30px">
+        <div style="font-weight: bold;font-family:黑体;font-size: 23px;text-align: center;padding-bottom: 30px">
             <span >用户登录</span>
         </div>
-        <form method="get" id="log_in">
-            <div class="input-group input-group-lg" style="padding-bottom: 40px">
+        <form method="post" id="log_in" action="${pageContext.request.contextPath}/login">
+            <div class="input-group" style="padding-bottom: 20px">
                 <span class="input-group-addon" id="basic-addon1" style="width: 50px">
                     <span class="glyphicon glyphicon-user"></span>
                 </span>
-                <input type="text" name="admin" class="form-control"  aria-describedby="sizing-addon1">
+                <input type="text" name="username" class="form-control"  aria-describedby="sizing-addon1">
             </div>
-            <div class="input-group input-group-lg" style="padding-bottom: 40px">
+            <div class="input-group" style="padding-bottom: 20px">
                 <span class="input-group-addon" id="basic-addon2" style="width: 50px">
                     <span class="glyphicon glyphicon-lock"></span>
                 </span>
-                <input type="text" name="password" class="form-control"  aria-describedby="sizing-addon1">
+                <input type="password" name="password" class="form-control"  aria-describedby="sizing-addon1">
             </div>
             <div id="loading" class="loginbtn" onclick="fo_sunbimt()">
                 登陆
