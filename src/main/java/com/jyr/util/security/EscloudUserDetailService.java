@@ -1,4 +1,4 @@
-package com.jyr.service;
+package com.jyr.util.security;
 
 import com.jyr.dao.AuthDao;
 import com.jyr.model.Role;

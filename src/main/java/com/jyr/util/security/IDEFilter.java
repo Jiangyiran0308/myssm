@@ -1,4 +1,4 @@
-package com.jyr.controller;
+package com.jyr.util.security;
 
 import com.jyr.model.Account;
 import org.springframework.security.core.Authentication;

@@ -32,7 +32,7 @@
 
   <filter>
     <filter-name>sessionFilter</filter-name>
-    <filter-class>com.jyr.controller.IDEFilter</filter-class>
+    <filter-class>com.jyr.util.security.IDEFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>sessionFilter</filter-name>

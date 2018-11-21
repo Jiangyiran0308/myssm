@@ -41,13 +41,10 @@
     </http>
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="escloudUserDetailService">
-            <!--<user-service>-->
-                <!--&lt;!&ndash; 这里创建两个用户，可以通过用户名密码登录 &ndash;&gt;-->
-                <!--<user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />-->
-                <!--<user name="user" password="123456" authorities="ROLE_USER" />-->
-            <!--</user-service>-->
         </authentication-provider>
     </authentication-manager>
+
+    <beans:bean id="escloudUserDetailService" class="com.jyr.util.security.EscloudUserDetailService"/>
 
     <beans:bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
