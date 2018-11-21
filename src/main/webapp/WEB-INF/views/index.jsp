@@ -14,6 +14,7 @@
 <h1>Hello World</h1>
 <span id = "text">
     <%=request.getAttribute("test")%>
+    <a href="${pageContext.request.contextPath}/logout">loginout</a>
 </span>
 </body>
 </html>

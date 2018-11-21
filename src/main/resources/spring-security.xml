@@ -29,9 +29,9 @@
         <form-login login-page="/login"
                     login-processing-url="/login" username-parameter="username" password-parameter="password"
                     authentication-failure-url="/login?login_error=t"
-                    default-target-url=""/>
+                    default-target-url="/index"/>
         <!--<logout/>-->
-        <logout invalidate-session="true" logout-success-url="/login" delete-cookies="JSESSIONID" />
+        <logout logout-url="/logout" invalidate-session="true" logout-success-url="/login" delete-cookies="JSESSIONID" />
 
         <!-- 配不同页面的权限，/admin下面需要role_admin权限，其他都可以 -->
 
@@ -40,12 +40,12 @@
 
     </http>
     <authentication-manager alias="authenticationManager">
-        <authentication-provider>
-            <user-service>
-                <!-- 这里创建两个用户，可以通过用户名密码登录 -->
-                <user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />
-                <user name="user" password="123456" authorities="ROLE_USER" />
-            </user-service>
+        <authentication-provider user-service-ref="escloudUserDetailService">
+            <!--<user-service>-->
+                <!--&lt;!&ndash; 这里创建两个用户，可以通过用户名密码登录 &ndash;&gt;-->
+                <!--<user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />-->
+                <!--<user name="user" password="123456" authorities="ROLE_USER" />-->
+            <!--</user-service>-->
         </authentication-provider>
     </authentication-manager>
 

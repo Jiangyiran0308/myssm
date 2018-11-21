@@ -31,7 +31,7 @@
             margin-left: 2%;
         }
         .loginbackground{
-            background: url("/assets/wall.jpg");
+            background: url("/assets/wall.png");
             width: 100%;
             height: 100%
         }

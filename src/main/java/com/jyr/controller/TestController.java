@@ -24,7 +24,7 @@ import java.util.Map;
 @RequestMapping(value = "/",method = RequestMethod.GET)
 public class TestController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
         String str = "welcome!!!";
         request.setAttribute("test",str);
