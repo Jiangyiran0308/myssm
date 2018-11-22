@@ -23,8 +23,7 @@ import java.util.Set;
  * @Modified By:
  */
 @Service
-public class EscloudUserDetailService implements UserDetailsService{
-    private AuthDao authDao ;
+public class MUserDetailService implements UserDetailsService{
 
 //    @Resource(name="AuthDao")
 //    public void setBaseCollectionDao(AuthDao authDao)

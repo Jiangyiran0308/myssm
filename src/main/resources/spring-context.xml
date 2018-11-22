@@ -8,6 +8,7 @@
     <context:component-scan base-package="com.jyr.model" />
     <context:component-scan base-package="com.jyr.dao" />
     <context:component-scan base-package="com.jyr.service" />
+    <context:component-scan base-package="com.jyr.util" />
 
 
 </beans>

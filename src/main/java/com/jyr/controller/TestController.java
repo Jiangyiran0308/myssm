@@ -30,6 +30,18 @@ public class TestController {
         request.setAttribute("test",str);
         return "index";
     }
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String admin(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
+        String str = "welcome!!!";
+        request.setAttribute("test",str);
+        return "admin";
+    }
+    @RequestMapping(value = "/superadmin", method = RequestMethod.GET)
+    public String superadmin(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
+        String str = "welcome!!!";
+        request.setAttribute("test",str);
+        return "superadmin";
+    }
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
         String str = "welcome!!!";

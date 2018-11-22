@@ -3,27 +3,28 @@
              xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.springframework.org/schema/beans
-                        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
                         http://www.springframework.org/schema/security
-                        http://www.springframework.org/schema/security/spring-security.xsd">
+                        http://www.springframework.org/schema/security/spring-security-4.1.xsd">
 
     <!-- 配置为none的不经过任何spring的过滤器，一下主要是静态资源，我们不需要经过过滤器 -->
     <!--<http pattern="//resources/**" security="none" />-->
     <!--<http pattern="/**.xml" security="none" />-->
+    <http pattern="/static/**.**" security="none" />
+    <http pattern="/static/**/**.**" security="none" />
+    <http pattern="/assets/**.**" security="none" />
+    <http pattern="/assets/**/**.**" security="none" />
+    <http pattern="/assets/**/**/**.**" security="none" />
+    <http pattern="/login" security="none" />
+    <http pattern="/login/**" security="none" />
+    <http pattern="/logout" security="none" />
 
     <!-- 配置为permitAll允许所有已登录或者未用户访问，但依然经过过滤器处理。除此之外所有的页面都需要登录访问 -->
     <!--<http auto-config="true" use-expressions="true">-->
     <!--<http use-expressions="false">-->
     <http auto-config="true">
-        <intercept-url pattern="/login" access="permitAll"/>
-        <!--不过滤静态资源-->
-        <intercept-url pattern="/static/**.**" access="permitAll"/>
-        <intercept-url pattern="/static/**/**.**" access="permitAll"/>
-        <intercept-url pattern="/assets/**.**" access="permitAll"/>
-        <intercept-url pattern="/assets/**/**.**" access="permitAll"/>
-        <intercept-url pattern="/assets/**/**/**.**" access="permitAll"/>
-
-        <intercept-url pattern="/**" access="hasAnyRole('ROLE_USER')"/>
+        <!--<intercept-url pattern="/login" access="permitAll"/>-->
+        <!--<intercept-url pattern="/**" access="hasAnyRole('ROLE_USER')"/>-->
 
         <!-- 配置登录的路径，已经认证失败的页面，认证成功的页面 -->
         <form-login login-page="/login"
@@ -35,17 +36,38 @@
 
         <!-- 配不同页面的权限，/admin下面需要role_admin权限，其他都可以 -->
 
+
+        <session-management invalid-session-url="/login" session-fixation-protection="none">
+            <concurrency-control max-sessions="1"
+                                 error-if-maximum-exceeded="true" />
+        </session-management>
+
+        <custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
+
         <!--禁用CSRF防御-->
         <csrf disabled="true" />
 
     </http>
+
+    <beans:bean id="filterSecurityInterceptor"
+            class="com.jyr.util.security.MSecurityFilter">
+        <beans:property name="rejectPublicInvocations" value="true"/>
+        <!--&lt;!&ndash; 用户拥有的权限 &ndash;&gt;-->
+        <beans:property name="accessDecisionManager" ref="mAccessDecisionManager" />
+        <!--&lt;!&ndash; 用户是否拥有所请求资源的权限 &ndash;&gt;-->
+        <beans:property name="authenticationManager" ref="authenticationManager" />
+        <!-- 资源与权限对应关系 -->
+        <beans:property name="securityMetadataSource" ref="mFilterInvocationSecurityMetadataSource"/>
+    </beans:bean>
+
+
     <authentication-manager alias="authenticationManager">
-        <authentication-provider user-service-ref="escloudUserDetailService">
+        <authentication-provider user-service-ref="mUserDetailService">
         </authentication-provider>
     </authentication-manager>
 
-    <beans:bean id="escloudUserDetailService" class="com.jyr.util.security.EscloudUserDetailService"/>
-
-    <beans:bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+    <beans:bean id="mFilterInvocationSecurityMetadataSource" class="com.jyr.util.security.MFilterInvocationSecurityMetadataSource"/>
+    <beans:bean id="mUserDetailService" class="com.jyr.util.security.MUserDetailService"/>
+    <beans:bean id="mAccessDecisionManager" class="com.jyr.util.security.MAccessDecisionManager"/>
 
 </beans:beans>
