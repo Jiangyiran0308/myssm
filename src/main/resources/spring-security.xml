@@ -16,19 +16,17 @@
     <http pattern="/assets/**/**.**" security="none" />
     <http pattern="/assets/**/**/**.**" security="none" />
     <http pattern="/login" security="none" />
-    <http pattern="/login/**" security="none" />
-    <http pattern="/logout" security="none" />
 
     <!-- 配置为permitAll允许所有已登录或者未用户访问，但依然经过过滤器处理。除此之外所有的页面都需要登录访问 -->
     <!--<http auto-config="true" use-expressions="true">-->
     <!--<http use-expressions="false">-->
-    <http auto-config="true">
+    <http auto-config="true" >
         <!--<intercept-url pattern="/login" access="permitAll"/>-->
         <!--<intercept-url pattern="/**" access="hasAnyRole('ROLE_USER')"/>-->
 
         <!-- 配置登录的路径，已经认证失败的页面，认证成功的页面 -->
         <form-login login-page="/login"
-                    login-processing-url="/login" username-parameter="username" password-parameter="password"
+                    login-processing-url="/login_action" username-parameter="username" password-parameter="password"
                     authentication-failure-url="/login?login_error=t"
                     default-target-url="/index"/>
         <!--<logout/>-->

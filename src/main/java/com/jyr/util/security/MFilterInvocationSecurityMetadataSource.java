@@ -26,6 +26,7 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
         if(resourceMap == null){
             resourceMap = new HashMap<>();
             List<String> resoures = new ArrayList<>() ;
+            resoures.add("/index.html");
             resoures.add("/index");
             resoures.add("/admin");
             resoures.add("/superadmin");
@@ -35,15 +36,12 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
                 ConfigAttribute configAttribute2 = new SecurityConfig("ROLE_ADMIN");
                 ConfigAttribute configAttribute3 = new SecurityConfig("ROLE_SUPERADMIN");
 
-                if(url.equals("/index")){
-                    config.add(configAttribute);
-                }
+                config.add(configAttribute);
+
                 if(url.equals("/admin")){
-                    config.add(configAttribute);
                     config.add(configAttribute2);
                 }
                 if(url.equals("/superadmin")){
-                    config.add(configAttribute);
                     config.add(configAttribute2);
                     config.add(configAttribute3);
                 }

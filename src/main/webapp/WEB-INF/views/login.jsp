@@ -91,7 +91,7 @@
         <div style="font-weight: bold;font-family:黑体;font-size: 3vh;text-align: center;margin-bottom: 10%;">
             <span >用户认证</span>
         </div>
-        <form method="post" id="log_in" action="/login">
+        <form method="post" id="log_in" action="/login_action">
             <div class="input-group" style="margin-bottom: 10%;width: 98%">
                 <span class="input-group-addon" id="basic-addon1" style="width: 40px">
                     <span class="glyphicon glyphicon-user"></span>

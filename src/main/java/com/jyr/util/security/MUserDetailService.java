@@ -44,7 +44,7 @@ public class MUserDetailService implements UserDetailsService{
             user.setCredentialsNonExpired(true);
             user.setStatus(1);
 
-            SimpleGrantedAuthority auth = new SimpleGrantedAuthority("ROLE_USER") ;
+            SimpleGrantedAuthority auth = new SimpleGrantedAuthority("ROLE_ADMIN") ;
             List<GrantedAuthority> list = new ArrayList<>();
             list.add(auth) ;
 

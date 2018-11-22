@@ -42,7 +42,7 @@ public class TestController {
         request.setAttribute("test",str);
         return "superadmin";
     }
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
         String str = "welcome!!!";
         request.setAttribute("test",str);
