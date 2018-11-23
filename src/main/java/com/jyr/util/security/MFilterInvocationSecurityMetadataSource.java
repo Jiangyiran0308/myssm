@@ -21,11 +21,13 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
 
     private void loadResourceDefine(){
 
-        System.out.println("+++++++++++++++++++++++++++++++++++++loadResourceDefine+++++++++++++++++++++++++++++++++++++");
-
         if(resourceMap == null){
             resourceMap = new HashMap<>();
             List<String> resoures = new ArrayList<>() ;
+            resoures.add("/data");
+            resoures.add("/test");
+            resoures.add("/messagesuccess");
+            resoures.add("/messageinfo");
             resoures.add("/index.html");
             resoures.add("/index");
             resoures.add("/admin");
@@ -37,13 +39,15 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
                 ConfigAttribute configAttribute3 = new SecurityConfig("ROLE_SUPERADMIN");
 
                 config.add(configAttribute);
+                config.add(configAttribute2);
+                config.add(configAttribute3);
 
                 if(url.equals("/admin")){
-                    config.add(configAttribute2);
+                    config.remove(configAttribute);
                 }
                 if(url.equals("/superadmin")){
-                    config.add(configAttribute2);
-                    config.add(configAttribute3);
+                    config.remove(configAttribute2);
+                    config.remove(configAttribute);
                 }
                 resourceMap.put(url,config);
             }
@@ -53,9 +57,8 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
 
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
-        System.out.println("+++++++++++++++++++++++++++++++++++++getAttributes+++++++++++++++++++++++++++++++++++++");
         String requestUrl = ((FilterInvocation) o).getRequestUrl();
-        System.out.println(requestUrl);
+//        System.out.println(requestUrl);
         if(resourceMap == null){
             loadResourceDefine();
         }

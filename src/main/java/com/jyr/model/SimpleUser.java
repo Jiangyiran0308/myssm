@@ -12,7 +12,7 @@ import java.util.*;
  * @Description:
  * @Modified By:
  */
-public class UserAccount implements UserDetails{
+public class SimpleUser implements UserDetails{
 
     private static final long serialVersionUID = -6498309642739707784L;
 

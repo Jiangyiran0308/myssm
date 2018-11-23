@@ -2,6 +2,8 @@ package com.jyr.controller;
 
 import com.jyr.model.Account;
 import com.jyr.model.Message.SimpleMessage;
+import com.jyr.model.SimpleUser;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +26,14 @@ import java.util.Map;
 @RequestMapping(value = "/",method = RequestMethod.GET)
 public class TestController {
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
-        String str = "welcome!!!";
-        request.setAttribute("test",str);
-        return "index";
-    }
+//    @RequestMapping(value = "/index", method = RequestMethod.GET)
+//    public String index(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
+//        String str = "welcome!!!";
+//        SimpleUser user = (SimpleUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal() ;
+//        System.out.println(user.getUserId());
+//        request.setAttribute("test",str);
+//        return "index";
+//    }
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(HttpServletRequest request , HttpServletResponse response) throws IOException, ServletException {
         String str = "welcome!!!";

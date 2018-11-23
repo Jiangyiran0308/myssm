@@ -15,6 +15,7 @@
     <http pattern="/assets/**.**" security="none" />
     <http pattern="/assets/**/**.**" security="none" />
     <http pattern="/assets/**/**/**.**" security="none" />
+    <http pattern="/**.ico" security="none" />
     <http pattern="/login" security="none" />
 
     <!-- 配置为permitAll允许所有已登录或者未用户访问，但依然经过过滤器处理。除此之外所有的页面都需要登录访问 -->
@@ -28,16 +29,17 @@
         <form-login login-page="/login"
                     login-processing-url="/login_action" username-parameter="username" password-parameter="password"
                     authentication-failure-url="/login?login_error=t"
-                    default-target-url="/index"/>
+                    default-target-url=""/>
         <!--<logout/>-->
         <logout logout-url="/logout" invalidate-session="true" logout-success-url="/login" delete-cookies="JSESSIONID" />
 
         <!-- 配不同页面的权限，/admin下面需要role_admin权限，其他都可以 -->
 
 
-        <session-management invalid-session-url="/login" session-fixation-protection="none">
-            <concurrency-control max-sessions="1"
-                                 error-if-maximum-exceeded="true" />
+        <session-management invalid-session-url="/login"
+                            session-fixation-protection="newSession">
+            <concurrency-control session-registry-ref="sessionRegistry"
+                                 max-sessions="1" error-if-maximum-exceeded="true" />
         </session-management>
 
         <custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
@@ -46,6 +48,13 @@
         <csrf disabled="true" />
 
     </http>
+
+    <beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl" />
+
+    <beans:bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <beans:property name="basename" value="org.springframework.security.messages"/>
+    </beans:bean>
 
     <beans:bean id="filterSecurityInterceptor"
             class="com.jyr.util.security.MSecurityFilter">
@@ -60,9 +69,20 @@
 
 
     <authentication-manager alias="authenticationManager">
-        <authentication-provider user-service-ref="mUserDetailService">
+        <!--自定义用户认证信息来源  数据库-->
+        <!--<authentication-provider user-service-ref="mUserDetailService">-->
+        <authentication-provider ref="authenticationProvider">
+            <!--密码加密-->
+            <!--<password-encoder hash="md5" base64="true"/>-->
         </authentication-provider>
     </authentication-manager>
+
+    <beans:bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <beans:property name="userDetailsService" ref="mUserDetailService"/>
+        <beans:property name="hideUserNotFoundExceptions" value="false" />
+        <beans:property name="messageSource" ref="messageSource" />
+        <!--<beans:property name="passwordEncoder" ref="UTPasswordEncoder" />-->
+    </beans:bean>
 
     <beans:bean id="mFilterInvocationSecurityMetadataSource" class="com.jyr.util.security.MFilterInvocationSecurityMetadataSource"/>
     <beans:bean id="mUserDetailService" class="com.jyr.util.security.MUserDetailService"/>

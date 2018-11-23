@@ -17,7 +17,7 @@ public class MAccessDecisionManager implements AccessDecisionManager {
 //    collection        是本次访问需要的权限。
     @Override
     public void decide(Authentication authentication, Object o, Collection<ConfigAttribute> collection) throws AccessDeniedException, InsufficientAuthenticationException {
-        System.err.println(" ---------------  MyAccessDecisionManager --------------- ");
+
         if(collection == null) {
             return;
         }

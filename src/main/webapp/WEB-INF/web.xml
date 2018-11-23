@@ -9,7 +9,7 @@
 
   <!-- 这是session过期时间 -->
   <session-config>
-    <session-timeout>1800</session-timeout>
+    <session-timeout>180</session-timeout>
   </session-config>
 
   <!-- 这里配置SpringMVC的监听器，也就是启动的时候SpringMVC会注册一些事件，然后监控系统的请求情况 -->

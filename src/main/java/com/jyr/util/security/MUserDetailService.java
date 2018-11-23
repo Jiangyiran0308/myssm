@@ -1,8 +1,8 @@
 package com.jyr.util.security;
 
-import com.jyr.dao.AuthDao;
-import com.jyr.model.Role;
-import com.jyr.model.UserAccount;
+import com.jyr.model.SimpleUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,11 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @Author: Jiang
@@ -30,13 +27,14 @@ public class MUserDetailService implements UserDetailsService{
 //    {
 //        this.authDao = authDao;
 //    }
+@Autowired
+private MessageSource messageSource;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        System.out.println("username   =   " + userName );
-
-        UserAccount user = new UserAccount() ;
+        SimpleUser user = new SimpleUser() ;
         if("admin".equals(userName)){
+            user.setUserId("1111111124444444432");
             user.setName("admin");
             user.setPassword("123456");
             user.setAccountNonExpired(true);
@@ -44,17 +42,38 @@ public class MUserDetailService implements UserDetailsService{
             user.setCredentialsNonExpired(true);
             user.setStatus(1);
 
-            SimpleGrantedAuthority auth = new SimpleGrantedAuthority("ROLE_ADMIN") ;
+            SimpleGrantedAuthority auth = new SimpleGrantedAuthority("ROLE_SUPERADMIN") ;
+//            SimpleGrantedAuthority auth1 = new SimpleGrantedAuthority("ROLE_USER") ;
             List<GrantedAuthority> list = new ArrayList<>();
             list.add(auth) ;
+//            list.add(auth1) ;
 
             user.setAuthorities(list);
 
-            Set<Role> roles = new HashSet<Role>() ;
-            Role role = new Role();
-            role.setRole_name("ROLE_ADMIN");
         }
-        System.out.println(user);
+
+        if("user".equals(userName)){
+            user.setUserId("11111111244422224432");
+            user.setName("user");
+            user.setPassword("123456");
+            user.setAccountNonExpired(true);
+            user.setAccountNonLocked(true);
+            user.setCredentialsNonExpired(true);
+            user.setStatus(1);
+
+//            SimpleGrantedAuthority auth = new SimpleGrantedAuthority("ROLE_SUPERADMIN") ;
+            SimpleGrantedAuthority auth1 = new SimpleGrantedAuthority("ROLE_USER") ;
+            List<GrantedAuthority> list = new ArrayList<>();
+//            list.add(auth) ;
+            list.add(auth1) ;
+
+            user.setAuthorities(list);
+
+        }
+        if(user.getName()== null){
+            throw new UsernameNotFoundException("用户不存在");
+        }
+        System.out.println(user.getName());
 
         return user;
     }

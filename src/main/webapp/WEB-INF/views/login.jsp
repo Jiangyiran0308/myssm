@@ -98,12 +98,13 @@
                 </span>
                 <input type="text" name="username" class="form-control"  aria-describedby="sizing-addon1">
             </div>
-            <div class="input-group" style="margin-bottom: 13%;width: 98%">
+            <div class="input-group" style="width: 98%;margin-bottom: 13%;">
                 <span class="input-group-addon" id="basic-addon2" style="width: 40px">
                     <span class="glyphicon glyphicon-lock"></span>
                 </span>
                 <input type="password" name="password" class="form-control"  aria-describedby="sizing-addon1">
             </div>
+            <span id="message" style="color:#FF5300;font-size:15px;">${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}</span>
             <div id="loading" class="loginbtn" onclick="fo_sunbimt()">
                 登陆
             </div>
