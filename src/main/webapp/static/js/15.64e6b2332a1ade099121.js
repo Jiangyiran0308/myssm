@@ -1,2 +1,0 @@
-webpackJsonp([15],{R173:function(e,n){},omRa:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var o={render:function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("\n    消息\n")])},staticRenderFns:[]};var a=t("VU/8")({name:"account-message",props:{},components:{},data:function(){return{}},mounted:function(){},methods:{}},o,!1,function(e){t("R173")},"data-v-18107ed2",null);n.default=a.exports}});
-//# sourceMappingURL=15.64e6b2332a1ade099121.js.map

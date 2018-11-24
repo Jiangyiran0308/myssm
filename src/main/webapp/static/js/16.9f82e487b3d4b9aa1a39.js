@@ -1,2 +1,0 @@
-webpackJsonp([16],{dwBY:function(e,n){},hiia:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var o={render:function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("\n  留言板\n")])},staticRenderFns:[]};var r=t("VU/8")({name:"others-note",props:{},components:{},data:function(){return{}},mounted:function(){},methods:{}},o,!1,function(e){t("dwBY")},"data-v-0e378c01",null);n.default=r.exports}});
-//# sourceMappingURL=16.9f82e487b3d4b9aa1a39.js.map

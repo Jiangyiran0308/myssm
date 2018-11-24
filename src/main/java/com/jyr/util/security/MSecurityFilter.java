@@ -11,6 +11,7 @@ import org.springframework.security.web.access.intercept.FilterSecurityIntercept
 import org.springframework.stereotype.Service;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
@@ -46,7 +47,12 @@ public class MSecurityFilter extends AbstractSecurityInterceptor implements Filt
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        FilterInvocation fi = new FilterInvocation(servletRequest, servletResponse, filterChain);
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "*");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE");
+
+        FilterInvocation fi = new FilterInvocation(servletRequest, response, filterChain);
         invoke(fi);
     }
 
