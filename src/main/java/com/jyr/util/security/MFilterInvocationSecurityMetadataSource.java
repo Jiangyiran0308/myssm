@@ -58,7 +58,7 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         String requestUrl = ((FilterInvocation) o).getRequestUrl();
-//        System.out.println(requestUrl);
+        System.out.println(requestUrl);
         if(resourceMap == null){
             loadResourceDefine();
         }

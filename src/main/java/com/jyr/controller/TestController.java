@@ -5,10 +5,7 @@ import com.jyr.model.Message.SimpleMessage;
 import com.jyr.model.SimpleUser;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -53,12 +50,13 @@ public class TestController {
         return "login";
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     @ResponseBody
     public Object testdata(String user) throws IOException, ServletException {
         String str = "welcome!!!";
 
-        System.out.println(user);
+//        System.out.println(user);
 //        System.out.println(request);
 
         Account account = new Account() ;
@@ -70,13 +68,15 @@ public class TestController {
         return account;
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     @ResponseBody
     public Object testppost(@RequestBody Map info){
-        System.out.println(info);
+//        System.out.println(info);
         return info ;
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/messagesuccess", method = RequestMethod.GET)
     @ResponseBody
     public SimpleMessage message(){
