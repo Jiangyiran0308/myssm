@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.jyr.dao.AccountDao">
+
+    <select id="selectAll" resultType="com.jyr.model.Account">
+        SELECT id userid,account_name username,user_name name,ACCOUNT_PASSWORD password,avatar FROM SYS_ACCOUNT
+    </select>
+
+    <select id="selectAccountByName" resultType="com.jyr.model.Account">
+        SELECT id userid,account_name username,user_name name,ACCOUNT_PASSWORD password,avatar FROM SYS_ACCOUNT t
+        WHERE t.STATUS = 1 AND t.ACCOUNT_NAME = #{username}
+    </select>
+
+    <select id="selectAccountById" resultType="com.jyr.model.Account">
+        SELECT id userid,account_name username,user_name name,ACCOUNT_PASSWORD password,avatar FROM SYS_ACCOUNT t
+        WHERE t.STATUS = 1 AND t.id = #{id}
+    </select>
+
+    <insert id="createAccount" parameterType="com.jyr.model.Account">
+        INSERT INTO SYS_ACCOUNT(id,<include refid="key1"/>) VALUES (sys_guid(),<include refid="values1"/>)
+    </insert>
+
+    <sql id="key1">
+        <trim suffixOverrides=",">
+            <if test="username != null">
+                account_name,
+            </if>
+            <if test="password != null">
+                account_password,
+            </if>
+            <if test="name != null">
+                user_name,
+            </if>
+            <if test="avater != null">
+                avater,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+        </trim>
+    </sql>
+    <sql id="values1">
+        <trim suffixOverrides=",">
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="avater != null">
+                #{avater},
+            </if>
+            <if test="create_time != null">
+                #{create_time},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+        </trim>
+    </sql>
+
+</mapper>

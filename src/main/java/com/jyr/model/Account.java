@@ -1,46 +1,34 @@
 package com.jyr.model;
 
-/**
- * @Author: Jiang
- * @Date: Created in 16:24  2018\11\14 0014
- * @Description:
- * @Modified By:
- */
-public class Account {
-    private String id ;
-    private String username ;
-    private String accountid ;
-    private String password ;
+import java.io.Serializable;
+import java.util.List;
 
-    public void setId(String id) {
-        this.id = id;
+public class Account extends SimpleUser implements Serializable {
+    private List<Role> roleList ;
+    private List<UserGroup> usergourpList ;
+    private List<Authority> authList;
+
+    public List<Role> getRoleList() {
+        return roleList;
     }
 
-    public String getId() {
-        return id;
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 
-    public String getAccountid() {
-        return accountid;
+    public List<UserGroup> getUsergourpList() {
+        return usergourpList;
     }
 
-    public void setAccountid(String accountid) {
-        this.accountid = accountid;
+    public void setUsergourpList(List<UserGroup> usergourpList) {
+        this.usergourpList = usergourpList;
     }
 
-    public String getPassword() {
-        return password;
+    public List<Authority> getAuthList() {
+        return authList;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setAuthList(List<Authority> authList) {
+        this.authList = authList;
     }
 }

@@ -28,7 +28,6 @@ public class SimpleUser implements UserDetails{
     private boolean accountNonLocked ;//是否锁定
     private boolean credentialsNonExpired ;//证书是否过期
 
-    private Set<Role> role ;
 
     private Collection<GrantedAuthority> authorities;
 
@@ -88,13 +87,6 @@ public class SimpleUser implements UserDetails{
         this.create_time = create_time;
     }
 
-    public Set<Role> getRole() {
-        return role;
-    }
-
-    public void setRole(Set<Role> role) {
-        this.role = role;
-    }
 
     public void setStatus(Integer status) {
         this.status = status;

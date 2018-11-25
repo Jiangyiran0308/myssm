@@ -1,6 +1,8 @@
 package com.jyr.model;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: Jiang
@@ -8,7 +10,7 @@ import java.util.Date;
  * @Description:
  * @Modified By:
  */
-public class Role {
+public class Role implements Serializable {
     private String id ;
     private String org_id ;
     private String role_name ;
@@ -18,6 +20,16 @@ public class Role {
     private String creator_id ;
     private Date create_time ;
     private Integer status ;
+
+    private List<Authority> authList ;
+
+    public List<Authority> getAuthList() {
+        return authList;
+    }
+
+    public void setAuthList(List<Authority> authList) {
+        this.authList = authList;
+    }
 
     public String getId() {
         return id;

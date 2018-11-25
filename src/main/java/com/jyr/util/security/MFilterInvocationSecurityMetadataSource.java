@@ -29,6 +29,7 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
             resoures.add("/messagesuccess");
             resoures.add("/messageinfo");
             resoures.add("/index.html");
+            resoures.add("/home");
             resoures.add("/index");
             resoures.add("/admin");
             resoures.add("/superadmin");

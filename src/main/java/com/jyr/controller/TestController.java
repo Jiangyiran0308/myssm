@@ -1,9 +1,7 @@
 package com.jyr.controller;
 
-import com.jyr.model.Account;
+import com.jyr.model.AccountUser;
 import com.jyr.model.Message.SimpleMessage;
-import com.jyr.model.SimpleUser;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,13 +57,13 @@ public class TestController {
 //        System.out.println(user);
 //        System.out.println(request);
 
-        Account account = new Account() ;
-        account.setId("111111");
-        account.setAccountid("123456");
-        account.setUsername("jiang");
-        account.setPassword("123");
+        AccountUser accountUser = new AccountUser() ;
+        accountUser.setId("111111");
+        accountUser.setAccountid("123456");
+        accountUser.setUsername("jiang");
+        accountUser.setPassword("123");
 
-        return account;
+        return accountUser;
     }
 
     @CrossOrigin
@@ -104,29 +102,29 @@ public class TestController {
     @RequestMapping(value = "/datainfo", method = RequestMethod.GET)
     @ResponseBody
     public SimpleMessage data1(){
-        Account account = new Account() ;
-        account.setId("111111");
-        account.setAccountid("123456");
-        account.setUsername("jiang");
-        account.setPassword("123");
-        return SimpleMessage.info(account);
+        AccountUser accountUser = new AccountUser() ;
+        accountUser.setId("111111");
+        accountUser.setAccountid("123456");
+        accountUser.setUsername("jiang");
+        accountUser.setPassword("123");
+        return SimpleMessage.info(accountUser);
     }
 
     @RequestMapping(value = "/testLogin", method = RequestMethod.POST)
     @ResponseBody
-    public SimpleMessage loginAuth(@RequestBody Account account){
+    public SimpleMessage loginAuth(@RequestBody AccountUser accountUser){
 
-        System.out.println(account.getAccountid());
-        System.out.println(account.getPassword());
+        System.out.println(accountUser.getAccountid());
+        System.out.println(accountUser.getPassword());
 
-        if(account.getAccountid().equals("admin")){
-            if(account.getPassword().equals("123456")){
-                account.setUsername("superadmin");
-                account.setId("11111111222222");
+        if(accountUser.getAccountid().equals("admin")){
+            if(accountUser.getPassword().equals("123456")){
+                accountUser.setUsername("superadmin");
+                accountUser.setId("11111111222222");
             }
         }
 //        return info ;
-        return SimpleMessage.info(account);
+        return SimpleMessage.info(accountUser);
     }
 
 
