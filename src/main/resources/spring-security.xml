@@ -74,8 +74,6 @@
         <!--自定义用户认证信息来源  数据库-->
         <!--<authentication-provider user-service-ref="mUserDetailService">-->
         <authentication-provider ref="authenticationProvider">
-            <!--密码加密-->
-            <!--<password-encoder hash="md5" base64="true"/>-->
         </authentication-provider>
     </authentication-manager>
 
@@ -83,11 +81,13 @@
         <beans:property name="userDetailsService" ref="mUserDetailService"/>
         <beans:property name="hideUserNotFoundExceptions" value="false" />
         <beans:property name="messageSource" ref="messageSource" />
-        <!--<beans:property name="passwordEncoder" ref="UTPasswordEncoder" />-->
+        <!--密码加密-->
+        <beans:property name="passwordEncoder" ref="mPasswordEncoder" />
     </beans:bean>
 
     <beans:bean id="mFilterInvocationSecurityMetadataSource" class="com.jyr.util.security.MFilterInvocationSecurityMetadataSource"/>
     <beans:bean id="mUserDetailService" class="com.jyr.util.security.MUserDetailService"/>
     <beans:bean id="mAccessDecisionManager" class="com.jyr.util.security.MAccessDecisionManager"/>
+    <beans:bean id="mPasswordEncoder" class="com.jyr.util.security.MPasswordEncoder"/>
 
 </beans:beans>

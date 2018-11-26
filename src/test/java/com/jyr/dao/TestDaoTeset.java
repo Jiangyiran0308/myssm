@@ -1,9 +1,12 @@
 package com.jyr.dao;
 
 import com.jyr.model.Account;
+import com.jyr.model.AccountUser;
+import com.jyr.util.AccountUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -41,7 +44,7 @@ public class TestDaoTeset {
     public void createAccount(){
         Account account = new Account();
         account.setUsername("superadmin");
-        account.setPassword("123456");
+        account.setPassword(AccountUtil.getMD5("123456"));
         account.setName("超级管理员");
         account.setCreate_time(new Date());
         accountDao.createAccount(account);

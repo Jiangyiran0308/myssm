@@ -36,7 +36,7 @@ private MessageSource messageSource;
         if("admin".equals(userName)){
             user.setUserId("1111111124444444432");
             user.setName("admin");
-            user.setPassword("123456");
+            user.setPassword("e10adc3949ba59abbe56e057f20f883e");
             user.setAccountNonExpired(true);
             user.setAccountNonLocked(true);
             user.setCredentialsNonExpired(true);
@@ -55,7 +55,7 @@ private MessageSource messageSource;
         if("user".equals(userName)){
             user.setUserId("11111111244422224432");
             user.setName("user");
-            user.setPassword("123456");
+            user.setPassword("e10adc3949ba59abbe56e057f20f883e");
             user.setAccountNonExpired(true);
             user.setAccountNonLocked(true);
             user.setCredentialsNonExpired(true);

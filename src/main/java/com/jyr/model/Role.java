@@ -21,6 +21,8 @@ public class Role implements Serializable {
     private Date createTime ;
     private Integer status ;
 
+    private String orgName ;
+    private Organization org ;
     private List<Authority> authList ;
 
     public String getId() {
@@ -101,5 +103,29 @@ public class Role implements Serializable {
 
     public void setAuthList(List<Authority> authList) {
         this.authList = authList;
+    }
+
+    public String getRoleDesc() {
+        return roleDesc;
+    }
+
+    public void setRoleDesc(String roleDesc) {
+        this.roleDesc = roleDesc;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
+
+    public Organization getOrg() {
+        return org;
+    }
+
+    public void setOrg(Organization org) {
+        this.org = org;
     }
 }

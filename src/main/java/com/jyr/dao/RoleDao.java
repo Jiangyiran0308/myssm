@@ -11,5 +11,6 @@ public interface RoleDao {
     List<Role> selectByAccountId(@Param("id")String id);
     List<Role> selectByUserGroupId(@Param("id")String id);
     List<Role> selectByAuthId(@Param("id")String id) ;
+    List<Role> selectByOrgId(@Param("id")String id) ;
 
 }
