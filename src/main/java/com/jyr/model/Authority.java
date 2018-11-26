@@ -1,11 +1,32 @@
 package com.jyr.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Authority implements Serializable {
     private String id ;
     private String summary ;
-    private String auth_name ;
+    private String authName ;
+
+    private List<Menu> menuList ;
+
+    private List<Resources> resList ;
+
+    public List<Resources> getResList() {
+        return resList;
+    }
+
+    public void setResList(List<Resources> resList) {
+        this.resList = resList;
+    }
+
+    public List<Menu> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<Menu> menuList) {
+        this.menuList = menuList;
+    }
 
     public String getId() {
         return id;
@@ -23,11 +44,11 @@ public class Authority implements Serializable {
         this.summary = summary;
     }
 
-    public String getAuth_name() {
-        return auth_name;
+    public String getAuthName() {
+        return authName;
     }
 
-    public void setAuth_name(String auth_name) {
-        this.auth_name = auth_name;
+    public void setAuthName(String authName) {
+        this.authName = authName;
     }
 }

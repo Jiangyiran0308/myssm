@@ -27,6 +27,8 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
             resoures.add("/data");
             resoures.add("/test");
             resoures.add("/messagesuccess");
+            resoures.add("/messagewarn");
+            resoures.add("/messagefail");
             resoures.add("/messageinfo");
             resoures.add("/index.html");
             resoures.add("/home");
@@ -46,7 +48,7 @@ public class MFilterInvocationSecurityMetadataSource implements FilterInvocation
                 if(url.equals("/admin")){
                     config.remove(configAttribute);
                 }
-                if(url.equals("/superadmin")){
+                if(url.equals("/superadmin")||url.equals("/messagewarn")||url.equals("/messagefail")){
                     config.remove(configAttribute2);
                     config.remove(configAttribute);
                 }

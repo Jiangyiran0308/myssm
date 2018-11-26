@@ -12,24 +12,16 @@ import java.util.List;
  */
 public class Role implements Serializable {
     private String id ;
-    private String org_id ;
-    private String role_name ;
-    private String rolr_desc ;
-    private boolean is_public ;
-    private boolean is_defaule ;
-    private String creator_id ;
-    private Date create_time ;
+    private String orgId ;
+    private String roleName ;
+    private String roleDesc ;
+    private Integer isPublic ;
+    private Integer isDefault ;
+    private String creatorId ;
+    private Date createTime ;
     private Integer status ;
 
     private List<Authority> authList ;
-
-    public List<Authority> getAuthList() {
-        return authList;
-    }
-
-    public void setAuthList(List<Authority> authList) {
-        this.authList = authList;
-    }
 
     public String getId() {
         return id;
@@ -39,67 +31,75 @@ public class Role implements Serializable {
         this.id = id;
     }
 
-    public String getOrg_id() {
-        return org_id;
+    public String getOrgId() {
+        return orgId;
     }
 
-    public void setOrg_id(String org_id) {
-        this.org_id = org_id;
+    public void setOrgId(String orgId) {
+        this.orgId = orgId;
     }
 
-    public String getRole_name() {
-        return role_name;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRole_name(String role_name) {
-        this.role_name = role_name;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
-    public String getRolr_desc() {
-        return rolr_desc;
+    public String getRolrDesc() {
+        return roleDesc;
     }
 
-    public void setRolr_desc(String rolr_desc) {
-        this.rolr_desc = rolr_desc;
+    public void setRolrDesc(String rolrDesc) {
+        this.roleDesc = rolrDesc;
     }
 
-    public boolean isIs_public() {
-        return is_public;
+    public Integer getIsPublic() {
+        return isPublic;
     }
 
-    public void setIs_public(boolean is_public) {
-        this.is_public = is_public;
+    public void setIsPublic(Integer isPublic) {
+        this.isPublic = isPublic;
     }
 
-    public boolean isIs_defaule() {
-        return is_defaule;
+    public Integer getIsDefault() {
+        return isDefault;
     }
 
-    public void setIs_defaule(boolean is_defaule) {
-        this.is_defaule = is_defaule;
+    public void setIsDefault(Integer isDefault) {
+        this.isDefault = isDefault;
     }
 
-    public String getCreator_id() {
-        return creator_id;
+    public String getCreatorId() {
+        return creatorId;
     }
 
-    public void setCreator_id(String creator_id) {
-        this.creator_id = creator_id;
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public boolean getStatus() {
-        return status !=0;
+    public Integer getStatus() {
+        return status;
     }
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public List<Authority> getAuthList() {
+        return authList;
+    }
+
+    public void setAuthList(List<Authority> authList) {
+        this.authList = authList;
     }
 }

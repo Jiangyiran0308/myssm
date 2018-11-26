@@ -4,9 +4,18 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Account extends SimpleUser implements Serializable {
+    private Organization org ;
     private List<Role> roleList ;
     private List<UserGroup> usergourpList ;
     private List<Authority> authList;
+
+    public Organization getOrg() {
+        return org;
+    }
+
+    public void setOrg(Organization org) {
+        this.org = org;
+    }
 
     public List<Role> getRoleList() {
         return roleList;

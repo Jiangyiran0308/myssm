@@ -16,13 +16,13 @@ public class SimpleUser implements UserDetails{
 
     private static final long serialVersionUID = -6498309642739707784L;
 
-    private String userId ;
+    private String id ;
     private String username ;
     private String name ;
     private String password ;
-    private String avater ;
-    private String creator_id ;
-    private Date create_time ;
+    private String avatar ;
+    private String creatorId ;
+    private Date createTime ;
     private Integer status ;
     private boolean accountNonExpired ;//是否过期
     private boolean accountNonLocked ;//是否锁定
@@ -36,11 +36,11 @@ public class SimpleUser implements UserDetails{
 
 
     public String getUserId() {
-        return userId;
+        return id;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.id = userId;
     }
 
     public String getName() {
@@ -52,11 +52,11 @@ public class SimpleUser implements UserDetails{
     }
 
     public String getAvater() {
-        return avater;
+        return avatar;
     }
 
     public void setAvater(String avater) {
-        this.avater = avater;
+        this.avatar = avater;
     }
 
     public void setAccountNonExpired(boolean accountNonExpired) {
@@ -72,19 +72,19 @@ public class SimpleUser implements UserDetails{
     }
 
     public String getCreator_id() {
-        return creator_id;
+        return creatorId;
     }
 
     public void setCreator_id(String creator_id) {
-        this.creator_id = creator_id;
+        this.creatorId = creator_id;
     }
 
     public Date getCreate_time() {
-        return create_time;
+        return createTime;
     }
 
     public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+        this.createTime = create_time;
     }
 
 
