@@ -5,10 +5,7 @@
 <mapper namespace="com.jyr.dao.RoleDao">
 
     <select id="selectAll" resultType="com.jyr.model.Role">
-        SELECT ID,ORG_ID orgId,ROLE_DESC roleDesc,CREATE_TIME creteTime,STATUS FROM SYS_ROLE t1
-        UNION (
-        SELECT FULL_NAME orgName FROM SYS_ORGANIZATION t2 WHERE t2.ID = t1.ORG_ID
-        )
+        SELECT ID,ORG_ID orgId,ORG_NAME orgName,ROLE_NAME roleName,ROLE_DESC roleDesc,CREATE_TIME creteTime,STATUS FROM SYS_ROLE
     </select>
 
 </mapper>
