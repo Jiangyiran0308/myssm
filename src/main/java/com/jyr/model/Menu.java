@@ -14,6 +14,8 @@ public class Menu implements Serializable {
     private String url ;
     private String status ;
 
+    private List<Menu> children ;
+
     private List<Resources> resList ;
 
     public String getId() {
@@ -86,5 +88,13 @@ public class Menu implements Serializable {
 
     public void setResList(List<Resources> resList) {
         this.resList = resList;
+    }
+
+    public List<Menu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Menu> children) {
+        this.children = children;
     }
 }
